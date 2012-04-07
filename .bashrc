@@ -21,30 +21,23 @@ function load_ps1() {
 if [ -f /etc/bashrc ]; then
   . /etc/bashrc
 fi
+
 BSCP_PATH=$HOME/github/dotfiles/bash_completaion/etc
 export BASH_COMPLETION=$BSCP_PATH/bash_completion
 export BASH_COMPLETION_DIR=$BSCP_PATH/bash_completion.d
 . $BASH_COMPLETION
 
-if [[ -s .rvm/scripts/rvm ]] ; then source .rvm/scripts/rvm ; fi
-#PATH=$PATH:.rvm/bin
-
 alias a="alias"
-a c="cd"
 a d="date"
-a g="git"
-a gi="git"
 a gr="grep"
-a h="history"
-a hi="history"
-a hig="history | grep"
 a le="less"
-a mkd="mkdir"
-a p="ps -ef"
-a ps="ps -ef"
-a psg="ps -ef | grep"
 a rsp="rspec -fs -c"
+a rvml="rvm list"
+a rvmu="rvm use"
 a sou="source"
+a g="git"     ; a gi="git"
+a h="history" ; a hi="history" ; a hig="history | grep"
+a p="ps -ef"  ; a ps="ps -ef"  ; a psg="ps -ef | grep"
 
 if [[ "$HOSTNAME" =~ ^.*.sakura.ne.jp$ ]]; then
   # SakuraVPS
@@ -54,14 +47,6 @@ if [[ "$HOSTNAME" =~ ^.*.sakura.ne.jp$ ]]; then
   a ll="ls -pl --color=auto --show-control-chars"
   a la="ls -pa --color=auto --show-control-chars"
   a lla="ls -pla --color=auto --show-control-chars"
-  # dropbox status show loop
-  function loop() {
-    while : 
-      do python2 dropbox.py status
-      du -sh ~/Dropbox
-      sleep 1s
-    done
-  }
 else
   # Other
   export LSCOLORS=gxfxcxdxbxegedabagacad
@@ -99,11 +84,6 @@ function dropboxloop() {
 function dd_ext() {
   dd if=/dev/urandom of=file1 bs=1024 count=1000
 }
-# show git fetch url
-function gfurl() {
-  git remote show origin 2>/dev/null | grep Fetch
-}
-a gf="gfurl"
 # find from root directory
 function findroot() {
   sudo find / -name $1 2>/dev/null
