@@ -1,0 +1,87 @@
+[user]
+  name  = kk_Ataka
+  email = kk_ataka@example.com
+[core]
+  quotepath = false
+  #editor   = vim
+  #pager
+[color]
+  branch = auto
+  diff   = auto
+  grep   = auto
+  status = auto
+  ui     = auto
+[alias]
+  # add
+  ad      = add
+  # branch
+  br      = branch -v
+  bra     = branch -av             # originのブランチも表示
+  brm     = branch --merged        # mergeしたブランチ
+  brnm    = branch --no-merged     # mergeしてないブランチ
+  # checkout
+  ch      = checkout
+  ch-     = checkout --
+  chb     = checkout -b            # checkout後そのブランチへ移動
+  chm     = checkout master        # masterブランチへcheckout
+  # commit
+  co      = commit -v              # コミット(diff)
+  coa     = commit -a              # add前のファイルもまとめてコミット
+  com     = commit -m              # 引数にコミットログ
+  coamen  = commit --amend         # 
+  # config
+  cf      = config                 # REPO_ROOT/.git/config
+  cfg     = config --global        # ~/.gitconfig
+  cfs     = config --system        # /etc/gitconfig
+  cfgl    = config --global --list
+  cfsl    = config --system --list
+  alias   = config --get-regexp "alias"
+                                   # エイリアスを表示
+  # diff
+  di      = diff                   # 作業ツリーの内容とステージングエリアの比較
+  dis     = diff --staged          # ステージされた内容と直近のコミットの比較
+  dih     = diff HEAD
+  dih1    = diff HEAD~
+  dih2    = diff HEAD~~
+  # fetch
+  fe      = fetch
+  # log
+  l       = log
+  lo      = log
+  los     = log --stat             # どのファイルがどのくらい変わったか
+  lop     = log -p                 # diffも表示
+  one     = log --all --date=short --pretty=format:%h\\ %ad\\ %Cblue%an%Creset\\ %Cgreen%d%Creset\\ %s
+                                   # 一行ログ
+  raw     = log --pretty=raw       # tree, parentなど表示
+  full    = log --stat --pretty=fuller
+                                   # Author, Commiterも表示
+  auco    = log --all --date=short --pretty=format:%h\\ Au:%ad\\ %aN\\<%Cblue%aE%Creset\\>\\ Co:%cN\\<%Cred%cE%Creset\\>\\ %Cgreen%d%Creset
+                                   # Author, Commiter(とメールアドレス)を表示
+  g       = log --graph --date-order --all --date=short -C -M --pretty=format:\"%h\"\\ %ad\\ %Cblue%cn%Creset\\ %Cgreen%d%Creset\\ %s
+  graph   = log --graph --date-order --all --date=short -C -M --pretty=format:\"%h\"\\ %ad\\ %Cblue%cn%Creset\\ %Cgreen%d%Creset\\ %s
+                                   # グラフ表示
+  oneline = log --pretty=oneline   # ログの簡易表示
+  # merge
+  me      = merge
+  # push
+  ps      = push
+  # pull
+  pl      = pull
+  # reset
+  rs      = reset
+  rsh     = reset HEAD
+  rsh1    = reset HEAD~
+  rsh2    = reset HEAD~~
+  # remote
+  re      = remote -v
+  rea     = remote add
+  rere    = remote rename
+  rerm    = remote rm
+  res     = remote show
+  # status
+  s       = status
+  st      = status
+  # show
+  sh      = show
+  # ls-tree
+  lst     = ls-tree -lr
