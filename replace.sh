@@ -2,6 +2,6 @@
 
 LN=/bin/ln
 FROM=$HOME/github/dotfiles
-$LN -sfv $FROM/.bashrc    $HOME
-$LN -sfv $FROM/.gitconfig $HOME
-$LN -sfv $FROM/.vimrc     $HOME
+$LN -siv $FROM/.bashrc    $HOME
+$LN -siv $FROM/.gitconfig $HOME
+$LN -siv $FROM/.vimrc     $HOME
