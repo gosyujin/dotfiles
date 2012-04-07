@@ -21,7 +21,7 @@ function load_ps1() {
 if [ -f /etc/bashrc ]; then
   . /etc/bashrc
 fi
-BSCP_PATH=$HOME/Dropbox/ConfigurationFile/bash_completaion/etc
+BSCP_PATH=$HOME/github/dotfiles/bash_completaion/etc
 export BASH_COMPLETION=$BSCP_PATH/bash_completion
 export BASH_COMPLETION_DIR=$BSCP_PATH/bash_completion.d
 . $BASH_COMPLETION
@@ -46,7 +46,7 @@ a psg="ps -ef | grep"
 a rsp="rspec -fs -c"
 a sou="source"
 
-if test $HOSTNAME = "www15203u.sakura.ne.jp"; then
+if [[ "$HOSTNAME" =~ ^.*.sakura.ne.jp$ ]]; then
   # SakuraVPS
   export LS_COLORS='no=00:fi=00:di=04;36:ln=01;36:pi=40;33:so=40;33:bd=40;33:cd=40;33:ex=01;31:or=04;36:*.tgz=01;32:*.gz=01;32:*.tar=01;32:*.lzh=01;32:*.LZH=01;32:*.lha=01;32:*.zip=01;32:*.z=01;32:*.Z=01;32:*.rpm=01;32:*.gif=01;35:*.jpg=01;35:*.tif=01;35:*.eqs=01;35:*.ps=01;35:*.bmp=01;35:*.xwd=01;35:*.JPG=01;35:*.jpeg=01;35:*.obj=01;35'
   a l="ls -p --color=auto --show-control-chars"
@@ -117,7 +117,9 @@ function shutdownnow() {
 function rebootnow() {
   sudo shutdown -r now
 }
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-export PROMPT_COMMAND=load_ps1
 
+# Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+export PROMPT_COMMAND=load_ps1
