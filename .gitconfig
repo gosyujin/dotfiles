@@ -50,15 +50,15 @@
   lo      = log
   los     = log --stat             # どのファイルがどのくらい変わったか
   lop     = log -p                 # diffも表示
-  one     = log --all --date=short --pretty=format:%h\\ %ad\\ %Cblue%an%Creset\\ %Cgreen%d%Creset\\ %s
+  one     = log --all --date=short --pretty=format:%h\\ %t\\ %ad\\ %Cblue%an%Creset\\ %Cgreen%d%Creset\\ %s
                                    # 一行ログ
   raw     = log --pretty=raw       # tree, parentなど表示
   full    = log --stat --pretty=fuller
                                    # Author, Commiterも表示
   auco    = log --all --date=short --pretty=format:%h\\ Au:%ad\\ %aN\\<%Cblue%aE%Creset\\>\\ Co:%cN\\<%Cred%cE%Creset\\>\\ %Cgreen%d%Creset
                                    # Author, Commiter(とメールアドレス)を表示
-  g       = log --graph --date-order --all --date=short -C -M --pretty=format:\"%h\"\\ %ad\\ %Cblue%cn%Creset\\ %Cgreen%d%Creset\\ %s
-  graph   = log --graph --date-order --all --date=short -C -M --pretty=format:\"%h\"\\ %ad\\ %Cblue%cn%Creset\\ %Cgreen%d%Creset\\ %s
+  g       = log --graph --date-order --all --date=short -C -M --pretty=format:\"%h\"\\ %t\\ %ad\\ %Cblue%cn%Creset\\ %Cgreen%d%Creset\\ %s
+  graph   = log --graph --date-order --all --date=short -C -M --pretty=format:\"%h\"\\ %t\\ %ad\\ %Cblue%cn%Creset\\ %Cgreen%d%Creset\\ %s
                                    # グラフ表示
   oneline = log --pretty=oneline   # ログの簡易表示
   # merge
