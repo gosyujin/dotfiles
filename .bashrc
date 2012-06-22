@@ -1,4 +1,4 @@
-#echo "reading .bashrc"
+# echo "reading .bashrc"
 # Prompt Style
 function load_ps1() {
   if [ -f $BASH_COMPLETION_DIR/git ]; then
@@ -22,40 +22,40 @@ if [ -f /etc/bashrc ]; then
   . /etc/bashrc
 fi
 
-BSCP_PATH=$HOME/github/dotfiles/bash_completaion/etc
-export BASH_COMPLETION=$BSCP_PATH/bash_completion
-export BASH_COMPLETION_DIR=$BSCP_PATH/bash_completion.d
-. $BASH_COMPLETION
-
-alias a="alias"
-a d="date"
-a gr="grep"
-a le="less"
-a rsp="rspec -fs -c"
-a rvml="rvm list"
-a rvmu="rvm use"
-a sou="source"
-a g="git"     ; a gi="git"
-a h="history" ; a hi="history" ; a hig="history | grep"
-a p="ps -ef"  ; a ps="ps -ef"  ; a psg="ps -ef | grep"
-
 if [[ "$HOSTNAME" =~ ^.*.sakura.ne.jp$ ]]; then
   # SakuraVPS
   export LS_COLORS='no=00:fi=00:di=04;36:ln=01;36:pi=40;33:so=40;33:bd=40;33:cd=40;33:ex=01;31:or=04;36:*.tgz=01;32:*.gz=01;32:*.tar=01;32:*.lzh=01;32:*.LZH=01;32:*.lha=01;32:*.zip=01;32:*.z=01;32:*.Z=01;32:*.rpm=01;32:*.gif=01;35:*.jpg=01;35:*.tif=01;35:*.eqs=01;35:*.ps=01;35:*.bmp=01;35:*.xwd=01;35:*.JPG=01;35:*.jpeg=01;35:*.obj=01;35'
-  a l="ls -p --color=auto --show-control-chars"
-  a ls="ls -p --color=auto --show-control-chars"
-  a ll="ls -pl --color=auto --show-control-chars"
-  a la="ls -pa --color=auto --show-control-chars"
-  a lla="ls -pla --color=auto --show-control-chars"
+  alias l="ls -p --color=auto --show-control-chars"
+  alias ls="ls -p --color=auto --show-control-chars"
+  alias ll="ls -pl --color=auto --show-control-chars"
+  alias la="ls -pa --color=auto --show-control-chars"
+  alias lla="ls -pla --color=auto --show-control-chars"
+  BSCP_PATH=$HOME/github/dotfiles/bash_completaion/etc
 else
   # Other
   export LSCOLORS=gxfxcxdxbxegedabagacad
-  a l="ls -Gp"
-  a ls="ls -Gp"
-  a ll="ls -Gpl"
-  a la="ls -Gpa"
-  a lla="ls -Gpla"
+  alias l="ls -Gp"
+  alias ls="ls -Gp"
+  alias ll="ls -Gpl"
+  alias la="ls -Gpa"
+  alias lla="ls -Gpla"
+  BSCP_PATH=$HOME/works/github/dotfiles/bash_completaion/etc
 fi
+
+alias d="date"
+alias gr="grep"
+alias le="less"
+alias rsp="rspec -fs -c"
+alias rvml="rvm list"
+alias rvmu="rvm use"
+alias sou="source"
+alias g="git"     ; alias gi="git"
+alias h="history" ; alias hi="history" ; alias hig="history | grep"
+alias p="ps -ef"  ; alias ps="ps -ef"  ; alias psg="ps -ef | grep"
+
+export BASH_COMPLETION=$BSCP_PATH/bash_completion
+export BASH_COMPLETION_DIR=$BSCP_PATH/bash_completion.d
+. $BASH_COMPLETION
 
 # args show loop
 function loop() {
@@ -88,7 +88,7 @@ function dd_ext() {
 function findroot() {
   sudo find / -name $1 2>/dev/null
 }
-a fr="findroot"
+alias fr="findroot"
 # root shutdown now
 function shutdownnow() {
   sudo shutdown -h now
