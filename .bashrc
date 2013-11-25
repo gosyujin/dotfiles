@@ -1,10 +1,16 @@
 # echo "reading .bashrc"
 # Prompt Style
 function load_ps1() {
-  if [ -f $BASH_COMPLETION_DIR/git ]; then
-    PS1="\[\033[0;37m\][\t \u\[\033[0;37m\]@\h\[\033[0;36m\]$(__git_ps1)\[\033[0;32m\]\w\[\033[0;37m\]]\n\$ "
+  LAST_STATUS=$?
+  if [ ${LAST_STATUS} = "0" ]; then
+    FACE="( '_').oO(${LAST_STATUS})"
   else
-    PS1="\[\033[0;37m\][\t \u\[\033[0;37m\]@\h \[\033[0;32m\]\w\[\033[0;37m\]]\n\$ "
+    FACE="(;>o<).oO(${LAST_STATUS})"
+  fi
+  if [ -f $BASH_COMPLETION_DIR/git ]; then
+    PS1="\[\033[0;37m\][\t \u\[\033[0;37m\]@\h ${FACE}\[\033[0;36m\]$(__git_ps1) \[\033[0;32m\]\w\[\033[0;37m\]]\n\$ "
+  else
+    PS1="\[\033[0;37m\][\t \u\[\033[0;37m\]@\h ${FACE}\[\033[0;32m\]\w\[\033[0;37m\]]\n\$ "
   fi
   # >: forward, <: back, =: equal
   export GIT_PS1_SHOWUPSTREAM=1
@@ -37,6 +43,7 @@ if [[ "$HOSTNAME" =~ ^.*.sakura.ne.jp$ ]]; then
   alias la="ls -pa --color=auto --show-control-chars"
   alias lla="ls -pla --color=auto --show-control-chars"
   BSCP_PATH=$HOME/github/dotfiles/bash_completaion/etc
+  BUNDLE_EXEC_PATH=$HOME/github/dotfiles/.bundler-exec.sh
 else
   # Other
   export LSCOLORS=gxfxcxdxbxegedabagacad
@@ -46,8 +53,11 @@ else
   alias la="ls -Gpa"
   alias lla="ls -Gpla"
   BSCP_PATH=$HOME/works/github/dotfiles/bash_completaion/etc
+  BUNDLE_EXEC_PATH=$HOME/works/github/dotfiles/.bundler-exec.sh
 fi
 
+alias cd="pushd"
+alias p="popd"
 alias d="date"
 alias gr="grep"
 alias le="less"
@@ -57,11 +67,12 @@ alias rvmu="rvm use"
 alias sou="source"
 alias g="git"     ; alias gi="git"
 alias h="history" ; alias hi="history" ; alias hig="history | grep"
-alias p="ps -ef"  ; alias ps="ps -ef"  ; alias psg="ps -ef | grep"
+alias ps="ps -ef" ; alias ps="ps -ef"  ; alias psg="ps -ef | grep"
 
 export BASH_COMPLETION=$BSCP_PATH/bash_completion
 export BASH_COMPLETION_DIR=$BSCP_PATH/bash_completion.d
 . $BASH_COMPLETION
+[ -f $BUNDLE_EXEC_PATH ] && source $BUNDLE_EXEC_PATH
 
 # args show loop
 function loop() {
