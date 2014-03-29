@@ -59,15 +59,11 @@ fi
 alias cd="pushd"
 alias p="popd"
 alias d="date"
-alias gr="grep"
-alias le="less"
+alias h="history" ; alias hig="history | grep"
+alias ps="ps -ef" ; alias psg="ps -ef | grep"
+
 alias rsp="rspec -fs -c"
-alias rvml="rvm list"
-alias rvmu="rvm use"
-alias sou="source"
-alias g="git"     ; alias gi="git"
-alias h="history" ; alias hi="history" ; alias hig="history | grep"
-alias ps="ps -ef" ; alias ps="ps -ef"  ; alias psg="ps -ef | grep"
+alias g="git" ; alias gi="git"
 
 export BASH_COMPLETION=$BSCP_PATH/bash_completion
 export BASH_COMPLETION_DIR=$BSCP_PATH/bash_completion.d
@@ -88,16 +84,7 @@ function loop() {
     done
   fi
 }
-# dropbox status show loop
-function dropboxloop() {
-  while : ; do
-    date
-    python2 ~/.dropbox-script/dropbox.py status
-    du -sh ~/Dropbox
-    du -sh ~/Dropbox/.dropbox.cache/
-    sleep 1s
-  done
-}
+# dd
 function dd_ext() {
   dd if=/dev/urandom of=file1 bs=1024 count=1000
 }
@@ -114,9 +101,5 @@ function shutdownnow() {
 function rebootnow() {
   sudo shutdown -r now
 }
-
-# Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 export PROMPT_COMMAND=load_ps1

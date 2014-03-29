@@ -1,7 +1,6 @@
 #!/bin/bash
 
-LN=/bin/ln
-FROM=$HOME/works/github/dotfiles
-$LN -siv $FROM/.bashrc    $HOME
-$LN -siv $FROM/.gitconfig $HOME
-$LN -siv $FROM/.vimrc     $HOME
+FROM=$HOME/github/dotfiles
+/bin/ln -siv $FROM/.bashrc    $HOME
+/bin/ln -siv $FROM/.gitconfig $HOME
+/bin/ln -siv $FROM/.vimrc     $HOME
