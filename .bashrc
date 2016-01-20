@@ -7,11 +7,9 @@ function load_ps1() {
   else
     FACE="(;>o<).oO(${LAST_STATUS})"
   fi
-  if [ -f $BASH_COMPLETION_DIR/git ]; then
-    PS1="\[\033[0;37m\][\t \u\[\033[0;37m\]@\h ${FACE}\[\033[0;36m\]$(__git_ps1) \[\033[0;32m\]\w\[\033[0;37m\]]\n\$ "
-  else
-    PS1="\[\033[0;37m\][\t \u\[\033[0;37m\]@\h ${FACE}\[\033[0;32m\]\w\[\033[0;37m\]]\n\$ "
-  fi
+
+  PS1="\[\033[0;37m\][\t \u\[\033[0;37m\]@\h ${FACE}\[\033[0;36m\]$(__git_ps1) \[\033[0;32m\]\w\[\033[0;37m\]]\n\$ "
+
   # >: forward, <: back, =: equal
   export GIT_PS1_SHOWUPSTREAM=1
   # %: exists untracked file
@@ -36,8 +34,6 @@ if [[ "$HOSTNAME" =~ ^.*.sakura.ne.jp$ ]]; then
   alias ll="ls -pl --color=auto --show-control-chars"
   alias la="ls -pa --color=auto --show-control-chars"
   alias lla="ls -pla --color=auto --show-control-chars"
-  BSCP_PATH=$HOME/github/dotfiles/bash_completaion/etc
-  BUNDLE_EXEC_PATH=$HOME/github/dotfiles/.bundler-exec.sh
 else
   # Other
   export LSCOLORS=gxfxcxdxbxegedabagacad
@@ -46,36 +42,29 @@ else
   alias ll="ls -Gpl"
   alias la="ls -Gpa"
   alias lla="ls -Gpla"
-  BSCP_PATH=$HOME/github/dotfiles/bash_completaion/etc
-  BUNDLE_EXEC_PATH=$HOME/github/dotfiles/.bundler-exec.sh
 fi
 
+DOTFILES_PATH=$HOME/github/dotfiles/
+BUNDLE_EXEC_SH=$DOTFILES_PATH/bundler-exec.sh
+GIT_COMPLETION_SH=$DOTFILES_PATH/git-completion.bash
+GIT_PROMPT_SH=$DOTFILES_PATH/git-prompt.sh
+
+[ -f $GIT_COMPLETION_SH ] && source $GIT_COMPLETION_SH
+[ -f $GIT_PROMPT_SH ] && source $GIT_PROMPT_SH
+[ -f $BUNDLE_EXEC_SH ] && source $BUNDLE_EXEC_SH
+
 alias cd="pushd"
-alias p="popd"
-alias d="date"
-alias h="history" ; alias hig="history | grep"
-alias ps="ps -ef" ; alias psg="ps -ef | grep"
-
-alias rsp="rspec -fs -c"
-alias g="git" ; alias gi="git"
-
+alias  p="popd"
+alias  d="date"
+alias  h="history" ; alias hig="history | grep"
+alias ps="ps -ef"  ; alias psg="ps -ef | grep"
+alias  g="git"     ; alias  gi="git"
 
 export HISTSIZE=50000
 export HISTFILESIZE=50000
-
-export JAVA_HOME=/usr/local/jdk
-export JDK_HOME=$JAVA_HOME
-export JRE_HOME=$JAVA_HOME/jre
 export GOPATH=~/gopath
 export GOBIN=$GOPATH/bin
-export BASH_COMPLETION=$BSCP_PATH/bash_completion
-export BASH_COMPLETION_DIR=$BSCP_PATH/bash_completion.d
-export PATH=$PATH:$JAVA_HOME/bin
-export PATH=$PATH:/usr/local/apache2/bin
 export PATH=$PATH:$GOBIN
-
-. $BASH_COMPLETION
-[ -f $BUNDLE_EXEC_PATH ] && source $BUNDLE_EXEC_PATH
 
 # args show loop
 function loop() {

@@ -1,5 +1,6 @@
 " vundle
 " git clone http://github.com/gmarik/vundle.git ~/.vim/vundle.git
+" :VundleInstall
 set nocompatible
 filetype off
 set rtp+=~/.vim/vundle.git
