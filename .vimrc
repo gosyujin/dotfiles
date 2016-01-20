@@ -12,9 +12,9 @@ filetype plugin indent on
 "オートインデント
 "set autoindent
 "バックアップディレクトリ
-set backupdir=/tmp/vimbackup
+"set backupdir=/tmp/vimbackup
 "スワップファイル用ディレクトリ
-set directory=/tmp/vimbackup
+"set directory=/tmp/vimbackup
 "タブ、行末を可視化
 set list
 "listで表示する文字の設定
