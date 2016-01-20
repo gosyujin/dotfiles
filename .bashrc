@@ -52,8 +52,8 @@ else
   alias ll="ls -Gpl"
   alias la="ls -Gpa"
   alias lla="ls -Gpla"
-  BSCP_PATH=$HOME/works/github/dotfiles/bash_completaion/etc
-  BUNDLE_EXEC_PATH=$HOME/works/github/dotfiles/.bundler-exec.sh
+  BSCP_PATH=$HOME/github/dotfiles/bash_completaion/etc
+  BUNDLE_EXEC_PATH=$HOME/github/dotfiles/.bundler-exec.sh
 fi
 
 alias cd="pushd"
@@ -65,6 +65,12 @@ alias ps="ps -ef" ; alias psg="ps -ef | grep"
 alias rsp="rspec -fs -c"
 alias g="git" ; alias gi="git"
 
+
+export HISTSIZE=50000
+export HISTFILESIZE=50000
+
+export GOPATH=~/gopath
+export GOBIN=$GOPATH/bin
 export BASH_COMPLETION=$BSCP_PATH/bash_completion
 export BASH_COMPLETION_DIR=$BSCP_PATH/bash_completion.d
 . $BASH_COMPLETION
