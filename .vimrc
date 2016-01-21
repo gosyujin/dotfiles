@@ -24,6 +24,8 @@ set listchars=eol:$,tab:>\ ,extends:<
 set number
 "シフトの移動幅
 set shiftwidth=2
+"シンタックスオン
+syntax on
 
 "syntax enable
 "set background=dark
