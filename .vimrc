@@ -7,6 +7,7 @@ set rtp+=~/.vim/vundle.git
 call vundle#rc()
 
 Bundle 'Shougo/neocomplcache'
+Bundle 'fatih/vim-go'
 
 filetype plugin indent on
 
