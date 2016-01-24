@@ -21,7 +21,7 @@ do
     fi
 done
 
-dst_dir=$TRASH_DIR$(date +%Y%m%d)
+dst_dir=${TRASH_DIR}trash_$(date +%Y%m%d-%H%M%S)
 if [ -e $dst_dir ]; then :
 else
     mkdir "$dst_dir"
