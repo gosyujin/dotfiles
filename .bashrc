@@ -53,6 +53,7 @@ GIT_PROMPT_SH=$DOTFILES_PATH/git-prompt.sh
 [ -f $GIT_PROMPT_SH ] && source $GIT_PROMPT_SH
 [ -f $BUNDLE_EXEC_SH ] && source $BUNDLE_EXEC_SH
 
+alias rm="sh $DOTFILES_PATH/rmtrash.sh"
 alias cd="pushd"
 alias  p="popd"
 alias  d="date"
