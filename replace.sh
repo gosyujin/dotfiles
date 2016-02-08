@@ -11,3 +11,7 @@ esac
 /bin/ln ${OPTIONS} $FROM/.bashrc    $HOME
 /bin/ln ${OPTIONS} $FROM/.gitconfig $HOME
 /bin/ln ${OPTIONS} $FROM/.vimrc     $HOME
+
+echo "git clone vundle"
+git clone http://github.com/gmarik/vundle.git ~/.vim/vundle.git
+echo "and :VundleInstall"
