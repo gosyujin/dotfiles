@@ -11,3 +11,4 @@ esac
 /bin/ln ${OPTIONS} $FROM/.bashrc    $HOME
 /bin/ln ${OPTIONS} $FROM/.gitconfig $HOME
 /bin/ln ${OPTIONS} $FROM/.vimrc     $HOME
+/bin/ln ${OPTIONS} $FROM/.tmux.conf $HOME
