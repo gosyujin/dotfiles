@@ -12,6 +12,7 @@ esac
 /bin/ln ${OPTIONS} $FROM/.gitconfig $HOME
 /bin/ln ${OPTIONS} $FROM/.vimrc     $HOME
 /bin/ln ${OPTIONS} $FROM/.tmux.conf $HOME
+mkdir -p $HOME .tmux
 
 echo "git clone vundle"
 git clone http://github.com/gmarik/vundle.git ~/.vim/vundle.git
