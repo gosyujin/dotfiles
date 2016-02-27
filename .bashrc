@@ -2,13 +2,16 @@
 # Prompt Style
 function load_ps1() {
   LAST_STATUS=$?
+  
+  AVAIL=`df -lh | grep /$ | awk '{print $4}'`
+
   if [ ${LAST_STATUS} = "0" ]; then
     FACE="( '_').oO(${LAST_STATUS})"
   else
     FACE="(;>o<).oO(\033[0;35m\]${LAST_STATUS}\033[0;37m\])"
   fi
 
-  PS1="\[\033[0;37m\][\t \u\[\033[0;37m\]@\033[0;31m\]\h\033[0;37m ${FACE}\[\033[0;36m\]$(__git_ps1) \[\033[0;32m\]\w\[\033[0;37m\]]\n\$ "
+  PS1="\[\033[0;37m\][\t \u\[\033[0;37m\]@\033[0;31m\]\h\033[0;37m Avail:${AVAIL} ${FACE}\[\033[0;36m\]$(__git_ps1) \[\033[0;32m\]\w\[\033[0;37m\]]\n\$ "
 
   # >: forward, <: back, =: equal
   export GIT_PS1_SHOWUPSTREAM=1
