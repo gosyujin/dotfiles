@@ -3,7 +3,7 @@
   email = kk_ataka@ring.skr.jp
 [core]
   quotepath = false
-  #editor   = vim
+  editor   = vim
   #pager
 [color]
   branch = auto
@@ -15,6 +15,7 @@
   # branch
   br      = branch -v
   bra     = branch -av             # originのブランチも表示
+  brd     = branch -D
   brm     = branch --merged        # mergeしたブランチ
   brnm    = branch --no-merged     # mergeしてないブランチ
   # checkout
@@ -39,10 +40,15 @@
   # fetch
   fe      = fetch
   fep     = fetch --prune
+  # rebase
+  reom    = rebase origin/master
+  rei     = rebase -i
+  reiom   = rebase -i origin/master
   # merge
   me      = merge
   # push
   ps      = push
+  psoh    = push origin HEAD
   # rebase
   rb      = rebase
   # reset

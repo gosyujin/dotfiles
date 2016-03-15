@@ -1,29 +1,3 @@
-# echo "reading .bashrc"
-# Prompt Style
-function load_ps1() {
-  LAST_STATUS=$?
-  
-  AVAIL=`df -lh | grep /$ | awk '{print $4}'`
-
-  if [ ${LAST_STATUS} = "0" ]; then
-    FACE="( '_').oO(${LAST_STATUS})"
-  else
-    FACE="(;>o<).oO(\033[0;35m\]${LAST_STATUS}\033[0;37m\])"
-  fi
-
-  PS1="\[\033[0;37m\][\t \u\[\033[0;37m\]@\033[0;31m\]\h\033[0;37m Avail:${AVAIL} ${FACE}\[\033[0;36m\]$(__git_ps1) \[\033[0;32m\]\w\[\033[0;37m\]]\n\$ "
-
-  # >: forward, <: back, =: equal
-  export GIT_PS1_SHOWUPSTREAM=1
-  # %: exists untracked file
-  export GIT_PS1_SHOWUNTRACKEDFILES=1
-  # $: exists stashed file
-  export GIT_PS1_SHOWSTASHSTATE=1
-  # *: exists unstaged file, +: exists staged file
-  export GIT_PS1_SHOWDIRTYSTATE=1
-  export PS1
-}
-
 # Source global definitions
 if [ -f /etc/bashrc ]; then
   . /etc/bashrc
@@ -64,11 +38,15 @@ alias  h="history" ; alias hig="history | grep"
 alias ps="ps -ef"  ; alias psg="ps -ef | grep"
 alias  g="git"     ; alias  gi="git"
 
+export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
 export HISTSIZE=50000
 export HISTFILESIZE=50000
 export GOPATH=~/gopath
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+export PATH="$HOME/.nodebrew/current/bin:$PATH"
 
 # args show loop
 function loop() {
@@ -100,6 +78,28 @@ function shutdownnow() {
 # root reboot now
 function rebootnow() {
   sudo shutdown -r now
+}
+
+# Prompt Style
+function load_ps1() {
+  LAST_STATUS=$?
+  if [ ${LAST_STATUS} = "0" ]; then
+    FACE="( '_').oO(${LAST_STATUS})"
+  else
+    FACE="(;>o<).oO(\033[0;35m\]${LAST_STATUS}\033[0;37m\])"
+  fi
+
+  PS1="\[\033[0;37m\][\t \u\[\033[0;37m\]@\033[0;31m\]\h\033[0;37m ${FACE}\[\033[0;36m\]$(__git_ps1) \[\033[0;32m\]\w\[\033[0;37m\]]\n\$ "
+
+  # >: forward, <: back, =: equal
+  export GIT_PS1_SHOWUPSTREAM=1
+  # %: exists untracked file
+  export GIT_PS1_SHOWUNTRACKEDFILES=1
+  # $: exists stashed file
+  export GIT_PS1_SHOWSTASHSTATE=1
+  # *: exists unstaged file, +: exists staged file
+  export GIT_PS1_SHOWDIRTYSTATE=1
+  export PS1
 }
 
 export PROMPT_COMMAND=load_ps1
