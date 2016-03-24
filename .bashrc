@@ -37,6 +37,7 @@ alias  d="date"
 alias  h="history" ; alias hig="history | grep"
 alias ps="ps -ef"  ; alias psg="ps -ef | grep"
 alias  g="git"     ; alias  gi="git"
+alias gitupstream="git fep; git chm; git reom"
 
 export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
 export HISTSIZE=50000

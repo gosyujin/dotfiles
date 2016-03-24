@@ -14,6 +14,11 @@ esac
 /bin/ln ${OPTIONS} $FROM/.tmux.conf $HOME
 mkdir -p $HOME .tmux
 
-echo "git clone vundle"
-git clone http://github.com/gmarik/vundle.git ~/.vim/vundle.git
-echo "and :VundleInstall"
+# Karabiner
+/bin/ln ${OPTIONS} $FROM/karabiner_private.xml ~/Library/Application\ Support/Karabiner/private.xml
+
+if [ -e ~/.vim/vundle ]; then
+  echo "git clone vundle"
+  git clone http://github.com/gmarik/vundle.git ~/.vim/vundle.git
+  echo "and :VundleInstall"
+fi

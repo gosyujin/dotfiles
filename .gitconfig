@@ -49,6 +49,7 @@
   # push
   ps      = push
   psoh    = push origin HEAD
+  psfoh   = push -f origin HEAD
   # rebase
   rb      = rebase
   # reset
