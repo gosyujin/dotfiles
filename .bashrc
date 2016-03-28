@@ -39,7 +39,7 @@ alias ps="ps -ef"  ; alias psg="ps -ef | grep"
 alias  g="git"     ; alias  gi="git"
 alias gitupstream="git fep; git chm; git reom"
 
-export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 export HISTSIZE=50000
 export HISTFILESIZE=50000
 export GOPATH=~/gopath
