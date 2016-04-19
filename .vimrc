@@ -8,15 +8,16 @@ call vundle#rc()
 
 Bundle 'Shougo/neocomplcache'
 Bundle 'fatih/vim-go'
+Bundle 'Rykka/riv.vim'
 
 filetype plugin indent on
 
 "オートインデント
 "set autoindent
 "バックアップディレクトリ
-"set backupdir=/tmp/vimbackup
+set backupdir=~/.vimbackup
 "スワップファイル用ディレクトリ
-"set directory=/tmp/vimbackup
+set directory=~/.vimbackup
 "タブ、行末を可視化
 set list
 "listで表示する文字の設定
@@ -28,6 +29,7 @@ set shiftwidth=2
 "シンタックスオン
 syntax on
 
+set clipboard=unnamed,autoselect
 "syntax enable
 "set background=dark
 "colorscheme desert

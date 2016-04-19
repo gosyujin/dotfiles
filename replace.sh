@@ -12,7 +12,8 @@ esac
 /bin/ln ${OPTIONS} $FROM/.gitconfig $HOME
 /bin/ln ${OPTIONS} $FROM/.vimrc     $HOME
 /bin/ln ${OPTIONS} $FROM/.tmux.conf $HOME
-mkdir -p $HOME .tmux
+mkdir -p $HOME/.tmux
+mkdir -p $HOME/.vimbackup
 
 # Karabiner
 /bin/ln ${OPTIONS} $FROM/karabiner_private.xml ~/Library/Application\ Support/Karabiner/private.xml

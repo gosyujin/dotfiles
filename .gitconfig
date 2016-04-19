@@ -37,9 +37,13 @@
   # diff
   di      = diff                   # 作業ツリーの内容とステージングエリアの比較
   dis     = diff --staged          # ステージされた内容と直近のコミットの比較
+  dih     = diff HEAD~..HEAD
+  dim     = diff master..HEAD
   # fetch
   fe      = fetch
   fep     = fetch --prune
+  # pull request
+  fpr     = "!f() { git fetch origin pull/$1/head:pr/$1; }; f"
   # rebase
   reom    = rebase origin/master
   rei     = rebase -i

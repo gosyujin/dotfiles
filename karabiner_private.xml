@@ -12,15 +12,18 @@
         <name>For Slack CTRL+N=move next channel, CTRL+P=move previous channel, CTRL+A=move unread channel</name>
         <identifier>private.app_slack_move_channel_with_ctrln_ctrlp</identifier>
         <only>SLACK</only>
-        <autogen>__KeyToKey__ KeyCode::N, ModifierFlag::CONTROL_L, KeyCode::CURSOR_DOWN, ModifierFlag::OPTION_L</autogen>
-        <autogen>__KeyToKey__ KeyCode::P, ModifierFlag::CONTROL_L, KeyCode::CURSOR_UP, ModifierFlag::OPTION_L</autogen>
+        <!--<autogen>__KeyToKey__ KeyCode::N, ModifierFlag::CONTROL_L, KeyCode::CURSOR_DOWN, ModifierFlag::OPTION_L</autogen>-->
+        <!--<autogen>__KeyToKey__ KeyCode::P, ModifierFlag::CONTROL_L, KeyCode::CURSOR_UP, ModifierFlag::OPTION_L</autogen>-->
+        <autogen>__KeyToKey__ KeyCode::S, ModifierFlag::CONTROL_L, ModifierFlag::SHIFT_L, KeyCode::CURSOR_UP, ModifierFlag::OPTION_L, ModifierFlag::SHIFT_L</autogen>
         <autogen>__KeyToKey__ KeyCode::S, ModifierFlag::CONTROL_L, KeyCode::CURSOR_DOWN, ModifierFlag::OPTION_L, ModifierFlag::SHIFT_L</autogen>
+        <autogen>__KeyToKey__ KeyCode::R, ModifierFlag::CONTROL_L, KeyCode::PAGEUP</autogen>
         <autogen>__KeyToKey__ KeyCode::C, ModifierFlag::CONTROL_L, KeyCode::PAGEDOWN</autogen>
     </item>
     <item>
         <name>Tweetbot same Slack shootcut</name>
         <identifier>remap.tweetbot_switch_account_1</identifier>
         <only>TWEETBOT</only>
+        <autogen>__KeyToKey__ KeyCode::R, ModifierFlag::CONTROL_L, KeyCode::CURSOR_DOWN</autogen>
         <autogen>__KeyToKey__ KeyCode::C, ModifierFlag::CONTROL_L, KeyCode::CURSOR_UP</autogen>
     </item>
 </root>
