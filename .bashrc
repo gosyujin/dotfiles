@@ -38,6 +38,7 @@ alias  h="history" ; alias hig="history | grep"
 alias ps="ps -ef"  ; alias psg="ps -ef | grep"
 alias  g="git"     ; alias  gi="git"
 alias gitupstream="git fep; git chm; git reom"
+alias  t="tldr"
 
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 export HISTSIZE=50000
@@ -92,7 +93,7 @@ function load_ps1() {
     FACE="(;>o<).oO(\033[0;35m\]${LAST_STATUS}\033[0;37m\])"
   fi
 
-  PS1="\[\033[0;37m\][\t \u\[\033[0;37m\]@\033[0;31m\]\h\033[0;37m Avail:${AVAIL} ${FACE}\[\033[0;36m\]$(__git_ps1) \[\033[0;32m\]\w\[\033[0;37m\]]\n\$ "
+  PS1="\[\033[0;37m\][\t\[\033[0;36m\]$(__git_ps1)\[\033[0;37m \u\[\033[0;37m\]@\033[0;31m\]\h\033[0;37m Avail:${AVAIL} ${FACE} \[\033[0;32m\]\w\[\033[0;37m\]]\n\$ "
 
 
   # >: forward, <: back, =: equal

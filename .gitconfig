@@ -46,8 +46,10 @@
   fpr     = "!f() { git fetch origin pull/$1/head:pr/$1; }; f"
   # rebase
   reom    = rebase origin/master
+  reod    = rebase origin/develop
   rei     = rebase -i
   reiom   = rebase -i origin/master
+  reiod   = rebase -i origin/develop
   # merge
   me      = merge
   # push
@@ -89,4 +91,6 @@
   g       = log --graph --date-order --all --date=short -C -M --pretty=format:\"%h\"\\ %t\\ %ad\\ %Cblue%cn%Creset\\ %Cgreen%d%Creset\\ %s
   graph   = log --graph --date-order --all --date=short -C -M --pretty=format:\"%h\"\\ %t\\ %ad\\ %Cblue%cn%Creset\\ %Cgreen%d%Creset\\ %s
                                    # グラフ表示
+  ggg     = log --graph --date-order --all --date=short -C -M --pretty=format:\"%h\"\\ %ad\\ %s
+
   oneline = log --pretty=oneline   # ログの簡易表示
